@@ -1,0 +1,44 @@
+{{ define "main" }}
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  {{ partial "mobile_nav_toggle.html" . }}
+  <div class="row">
+    <div class="col-lg-8">
+      {{ $isPoetry := eq .File.Dir "poetry/" }}
+
+      <div class="content-column-content {{ if $isPoetry }}poem{{ end }}">
+        <h1>{{ if .Title }}{{ .Title }}{{ else }}Untitled{{ end }}</h1>
+        {{ if not $isPoetry }}{{ with .Params.year }}<p class="year">({{ . }})</p>{{ end }}{{ end }}
+
+        {{ $img := printf "/img/%s/%s.jpg" .File.Dir .File.BaseFileName }}
+        {{ $imgPath := printf "static/%s" $img }}
+
+        {{ if fileExists $imgPath }}
+           <a href="#" class="lightbox" id="img"><span style="background-image: url({{ $img }})"></span></a>
+           <a name="img" href="#img" class="main-image" style="margin: auto;"><img src="{{ $img }}" ></a>
+        {{ end }}
+
+        {{ .Content }}
+
+        <div style="display: flex; justify-content: center; margin-top: 4rem;">
+        {{ if .NextInSection }}
+          <a href="{{ .NextInSection.Permalink }}" class="glyphicon glyphicon-chevron-left" style="margin: auto 1em;"></a>
+        {{ else }}
+          <span class="glyphicon glyphicon-chevron-left" style="margin: auto 1em; color: #bbb;"></span>
+        {{ end }}
+
+        {{ if .PrevInSection }}
+          <a href="{{ .PrevInSection.Permalink }}" class="glyphicon glyphicon-chevron-right" style="margin: auto 1em;"></a>
+        {{ else }}
+          <span class="glyphicon glyphicon-chevron-right" style="margin: auto 1em; color: #bbb;"></span>
+        {{ end }}
+        </div>
+
+        {{ with .Params.footnote }}<p class="footnote">{{ . | safeHTML }}</p>{{ end }}
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+{{ end }}

@@ -7,11 +7,7 @@
          <h1>{{ .Title }}</h1>
          {{ .Content }}
 
-         <h4>You can find me also on:</h4>
-         {{ partial "social_buttons_in_contact.html" . }}
-
          {{ with .Site.Params.formspreeid }}
-         <h4>Drop me a line, maybe?</h4>
          <form id="contact-form" class="contact-form form" method="post" action="https://formspree.io/f/{{ . }}">
            <div class="controls">
              <div class="form-group">
@@ -23,15 +19,20 @@
                <input type="email" name="email" id="email" required="required" class="form-control">
              </div>
              <div class="form-group">
-               <label for="message">Your message for me *</label>
+               <label for="message">Your message *</label>
                <textarea rows="4" name="message" id="message" required="required" class="form-control"></textarea>
              </div>
              <div>
-               <input type="submit" value="Send" class="btn btn-ghost">
+               <br>
+               <input type="submit" value="Send message" class="btn btn-ghost">
              </div>
            </div>
          </form>
          {{ end }}
+
+         <br><br><p>You also contact Magic via:</p>
+         {{ partial "social_buttons_in_contact.html" . }}
+
       </div>
     </div>
   </div>

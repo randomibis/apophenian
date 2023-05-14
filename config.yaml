@@ -1,4 +1,4 @@
-baseURL: http://example.org/
+baseURL: https://apophenian.art/
 languageCode: en-us
 title: Apophenian
 theme: hugo-creative-portfolio-theme
@@ -26,9 +26,16 @@ params:
 
   # Nav links in the side bar
   navlinks:
-  - name: "Home"
-    url: "portfolio/"
+  - name: "Canvases"
+    url: "canvases/"
     home: true
+
+  - name: "Watercolors & sketches"
+    url: "sketches/"
+
+  - name: "Poetry"
+    url: "poetry/"
+
   - name: "About"
     url: "about/"
 
