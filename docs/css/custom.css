@@ -1,0 +1,98 @@
+
+.box-masonry .box-masonry-image {
+  padding: 0.75em;
+  padding-bottom: 0;
+  background-color: transparent;
+}
+
+.box-masonry h4 {
+  margin-top: 0.25em;
+  font-size: 80%;
+}
+
+.box-masonry .year {
+  font-size: 70%;
+  margin-top: -0.5em;
+}
+
+.box-masonry.poem .year {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.box-masonry.poem p.poem-text a {
+    color: #888;
+}
+
+.content-column-content p, .content-column-content li {
+  color: #666666;
+}
+
+.content-column-content.poem h1 {
+  margin-bottom: 5rem;
+}
+
+.content-column-content.poem p {
+  padding-left: 0.5rem;
+  line-height: 2.2;
+}
+
+.content-column-content p.footnote {
+  margin-top: 12rem;
+  padding-left: 2rem;
+  line-height: 1.5;
+  font-size: 70%;
+  color: #888;
+}
+
+.content-column-content h1 {
+  color: #555;
+}
+
+.content-column-content .year {
+  font-size: 80%;
+  padding-left: 2rem;
+}
+
+/* For image click to zoom */
+
+.lightbox {
+  /* Default to hidden */
+  display: none;
+  /* Overlay entire screen */
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* A bit of padding around image */
+  padding: 1em;
+  /* Translucent background */
+  background: rgba(0, 0, 0, 0.8);
+  cursor: zoom-out;
+}
+/* Unhide the lightbox when it's the target */
+.lightbox:target {
+  display: block;
+}
+.lightbox span {
+  /* Full width and height */
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* Size and position background image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main-image img {
+    max-height: 50rem;
+    cursor: zoom-in;
+}
+
+/* --- */
+
+a.glyphicon:hover {
+    text-decoration: none;
+}
