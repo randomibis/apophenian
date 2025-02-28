@@ -30,6 +30,9 @@ params:
     url: "canvases/"
     home: true
 
+  - name: "Mixed media"
+    url: "mixed-media/"
+
   - name: "Watercolors & sketches"
     url: "sketches/"
 
