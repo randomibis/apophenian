@@ -3,15 +3,24 @@
     <div class="grid">
         <div class="row">
           {{ range .Data.Pages }}
-              {{ $img := printf "img/%s/%s.jpg" .File.Dir .File.BaseFileName }}
-              {{ $imgPath := printf "static/%s" $img }}
-              {{ $imgExists := fileExists $imgPath }}
+              {{ $img1 := printf "/img/%s/%s.jpg" .File.Dir .File.BaseFileName }}
+              {{ $img2 := printf "/img/%s/%s.jpg" "gallery" .File.BaseFileName }}
+
+              {{ $imgPath1 := printf "static%s" $img1 }}
+              {{ $imgPath2 := printf "static%s" $img2 }}
+
+              {{ $img := "" }}
+              {{ if fileExists $imgPath1 }}
+                {{ $img = $img1 }}
+              {{ else if fileExists $imgPath2 }}
+                {{ $img = $img2 }}
+              {{ end }}
 
               {{ $isPoetry := eq .File.Dir "poetry/" }}
 
               <div class="col-xs-12 col-sm-6 col-md-4 {{ if .Params.wide }}col-lg-6{{else}}col-lg-3{{ end }} masonry-item">
                   <div class="box-masonry {{ if $isPoetry }}poem{{ end }}">
-                      {{ if $imgExists }}
+                      {{ if $img }}
                         {{ if eq .Params.showonlyimage true }}
                         <a href="{{ .Permalink }}" title="" class="box-masonry-image with-hover-overlay">
                         {{ else }}

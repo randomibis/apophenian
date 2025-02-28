@@ -9,10 +9,20 @@
         <h1>{{ if .Title }}{{ .Title }}{{ else }}Untitled{{ end }}</h1>
         {{ if not $isPoetry }}{{ with .Params.year }}<p class="year">({{ . }})</p>{{ end }}{{ end }}
 
-        {{ $img := printf "/img/%s/%s.jpg" .File.Dir .File.BaseFileName }}
-        {{ $imgPath := printf "static/%s" $img }}
+        {{ $img1 := printf "/img/%s/%s.jpg" .File.Dir .File.BaseFileName }}
+        {{ $img2 := printf "/img/%s/%s.jpg" "gallery" .File.BaseFileName }}
 
-        {{ if fileExists $imgPath }}
+        {{ $imgPath1 := printf "static%s" $img1 }}
+        {{ $imgPath2 := printf "static%s" $img2 }}
+
+        {{ $img := "" }}
+        {{ if fileExists $imgPath1 }}
+          {{ $img = $img1 }}
+        {{ else if fileExists $imgPath2 }}
+          {{ $img = $img2 }}
+        {{ end }}
+
+        {{ if $img }}
            <a href="#" class="lightbox" id="img"><span style="background-image: url({{ $img }})"></span></a>
            <a name="img" href="#img" class="main-image" style="margin: auto;"><img src="{{ $img }}" ></a>
         {{ end }}
