@@ -25,8 +25,11 @@ update-docs-branch: refresh
 	@# Not sure why everything is automatically staged
 	@git reset
 	@#
+	@# Make a little readme file
+	@echo -e "# Docs build\n\nOrphan branch and commit with content built from $(COMMIT_INFO) in main branch." > README.md
+	@#
 	@# Add the generated files and make a commit
-	@git add -f $(HUGO_OUTPUT_DIR)/*
+	@git add -f $(HUGO_OUTPUT_DIR)/* README.md
 	@git commit -q --no-gpg-sign -m "Docs build" -m "Built from: '$(COMMIT_INFO)'"
 	@#
 	@# Back to main branch
