@@ -25,6 +25,9 @@ update-docs-branch: refresh
 	@# Not sure why everything is automatically staged
 	@git reset
 	@#
+	@# Create the CNAME file so the GitHub pages custom domain works
+	@echo "apophenian.art" > docs/CNAME
+	@#
 	@# Make a little readme file
 	@echo -e "# Docs build\n\nOrphan branch and commit with content built from $(COMMIT_INFO) in main branch." > README.md
 	@#
