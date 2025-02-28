@@ -21,13 +21,13 @@
 
         <div style="display: flex; justify-content: center; margin-top: 4rem;">
         {{ if .NextInSection }}
-          <a href="{{ .NextInSection.Permalink }}" class="glyphicon glyphicon-chevron-left" style="margin: auto 1em;"></a>
+          <a href="{{ .NextInSection.Permalink }}" rel="prev" class="glyphicon glyphicon-chevron-left" style="margin: auto 1em;"></a>
         {{ else }}
           <span class="glyphicon glyphicon-chevron-left" style="margin: auto 1em; color: #bbb;"></span>
         {{ end }}
 
         {{ if .PrevInSection }}
-          <a href="{{ .PrevInSection.Permalink }}" class="glyphicon glyphicon-chevron-right" style="margin: auto 1em;"></a>
+          <a href="{{ .PrevInSection.Permalink }}" rel="next" class="glyphicon glyphicon-chevron-right" style="margin: auto 1em;"></a>
         {{ else }}
           <span class="glyphicon glyphicon-chevron-right" style="margin: auto 1em; color: #bbb;"></span>
         {{ end }}
