@@ -10,7 +10,8 @@ generate:
 
 refresh: clean generate
 
-COMMIT_INFO=$(shell git log -1 --pretty='%h %B')
+COMMIT_SHA=$(shell git log -1 --pretty='%h')
+COMMIT_INFO=$(shell git log -1 --pretty='%B')
 
 update-docs-branch: refresh
 	@#
@@ -29,11 +30,11 @@ update-docs-branch: refresh
 	@echo "apophenian.art" > docs/CNAME
 	@#
 	@# Make a little readme file
-	@echo -e "# Docs build\n\nOrphan branch and commit with content built from $(COMMIT_INFO) in main branch." > README.md
+	@echo -e "# Docs build\n\nOrphan branch and commit with content built from $(COMMIT_SHA) in main branch." > README.md
 	@#
 	@# Add the generated files and make a commit
 	@git add -f $(HUGO_OUTPUT_DIR)/* README.md
-	@git commit -q --no-gpg-sign -m "Docs build" -m "Built from: '$(COMMIT_INFO)'"
+	@git commit -q --no-gpg-sign -m "Docs build" -m "Built from $(COMMIT_SHA) in main branch" -m "'$(COMMIT_INFO)'"
 	@#
 	@# Back to main branch
 	@git checkout -f main
