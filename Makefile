@@ -27,7 +27,7 @@ update-docs-branch: refresh
 	@#
 	@# Add the generated files and make a commit
 	@git add -f $(HUGO_OUTPUT_DIR)/*
-	@git commit -q -m "Docs build" -m "Built from: '$(COMMIT_INFO)'"
+	@git commit -q --no-gpg-sign -m "Docs build" -m "Built from: '$(COMMIT_INFO)'"
 	@#
 	@# Back to main branch
 	@git checkout -f main
