@@ -41,6 +41,7 @@ update-docs-branch: refresh
 
 publish:
 	@git push -f origin $(HUGO_OUTPUT_BRANCH):$(HUGO_OUTPUT_BRANCH)
+	@echo "Updated https://apophenian.art/"
 
 republish: update-docs-branch publish
 
