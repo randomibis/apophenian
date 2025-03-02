@@ -43,7 +43,13 @@ publish:
 	@git push -f origin $(HUGO_OUTPUT_BRANCH):$(HUGO_OUTPUT_BRANCH)
 	@echo "Updated https://apophenian.art/"
 
+publish-action-url:
+	@curl -s "https://api.github.com/repos/randomibis/apophenian/actions/runs?per_page=1" | \
+	  jq -r '.workflow_runs[0] | "https://github.com/randomibis/apophenian/actions/runs/" + (.id | tostring)'
+
 republish: update-docs-branch publish
+	@sleep 1
+	@$(MAKE) publish-action-url
 
 prod-diff:
 	@git fetch origin && \
