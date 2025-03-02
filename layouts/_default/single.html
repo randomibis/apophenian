@@ -43,6 +43,7 @@
         {{ end }}
         </div>
 
+        {{ with .Params.dimensions }}<p class="footnote">{{ . | safeHTML }}</p>{{ end }}
         {{ with .Params.footnote }}<p class="footnote">{{ . | safeHTML }}</p>{{ end }}
 
       </div>
