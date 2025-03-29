@@ -54,6 +54,9 @@ republish: update-docs-branch publish
 prod-diff:
 	@git fetch origin && \
 	  PROD_SHA=$$(git log -n1 origin/docs-build | grep 'Built from' | awk '{print $$3}') && \
+	  echo "====================================================================" && \
+	  git ll -n1 $$PROD_SHA && \
+	  echo "====================================================================" && \
 	  git diff $$PROD_SHA
 
 preview:
