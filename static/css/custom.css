@@ -96,3 +96,32 @@
 a.glyphicon:hover {
     text-decoration: none;
 }
+
+/* Remove arrow icon from Bootstrap nav tabs */
+.nav-tabs li:before {
+  content: none !important;
+  margin: 0 !important;
+}
+
+.tab-pane {
+  padding-top: 30px;
+}
+
+/* Top padding for home link on pages without sidebar */
+.submission .sidebar-heading {
+  padding-top: 20px;
+}
+
+.submission .content-column-content {
+  padding-left: 0px !important;
+}
+
+.submission .content-column-content h1 {
+  font-size: 200%;
+  opacity: 60%;
+}
+
+.submission .content-column-content h4 {
+  font-size: 150%;
+  opacity: 60%;
+}
