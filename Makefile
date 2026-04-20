@@ -13,7 +13,9 @@ refresh: clean generate
 COMMIT_SHA=$(shell git log -1 --pretty='%h')
 COMMIT_INFO=$(shell git log -1 --pretty='%B')
 
-update-docs-branch: refresh
+rebuild-docs-branch: refresh
+	@#
+	@# Full rebuild: deletes and recreates the docs-build branch from scratch
 	@#
 	@# Avoid losing changes when moving back to main branch since the git checkout -f is like a hard reset
 	@if [ -n "$$(git diff --name-only)" ]; then echo "Aborting due to uncommitted changes"; exit 1; fi
@@ -33,8 +35,35 @@ update-docs-branch: refresh
 	@echo -e "# Docs build\n\nOrphan branch and commit with content built from $(COMMIT_SHA) in main branch." > README.md
 	@#
 	@# Add the generated files and make a commit
-	@git add -f $(HUGO_OUTPUT_DIR)/* README.md
+	@git add -f $(HUGO_OUTPUT_DIR) README.md
 	@git commit -q --no-gpg-sign -m "Docs build" -m "Built from $(COMMIT_SHA) in main branch" -m "'$(COMMIT_INFO)'"
+	@#
+	@# Back to main branch
+	@git checkout -f main
+
+update-docs-branch: refresh
+	@#
+	@# Incremental update: commits changes to existing docs-build branch
+	@#
+	@# Avoid losing changes when moving back to main branch
+	@if [ -n "$$(git diff --name-only)" ]; then echo "Aborting due to uncommitted changes"; exit 1; fi
+	@if [ -n "$$(git diff --staged --name-only)" ]; then echo "Aborting due to uncommitted staged changes"; exit 1; fi
+	@#
+	@# Checkout the existing docs-build branch
+	@git checkout $(HUGO_OUTPUT_BRANCH)
+	@#
+	@# Update the generated content
+	@echo "apophenian.art" > docs/CNAME
+	@echo -e "# Docs build\n\nOrphan branch and commit with content built from $(COMMIT_SHA) in main branch." > README.md
+	@#
+	@# Stage and commit any changes
+	@git add -f $(HUGO_OUTPUT_DIR) README.md
+	@if git diff --staged --quiet; then \
+		echo "No changes to commit"; \
+	else \
+		git commit -q --no-gpg-sign -m "Docs build" -m "Built from $(COMMIT_SHA) in main branch" -m "'$(COMMIT_INFO)'"; \
+		echo "Committed changes"; \
+	fi
 	@#
 	@# Back to main branch
 	@git checkout -f main
@@ -48,6 +77,10 @@ publish-action-url:
 	  jq -r '.workflow_runs[0] | "https://github.com/randomibis/apophenian/actions/runs/" + (.id | tostring)'
 
 republish: update-docs-branch publish
+	@sleep 1
+	@$(MAKE) publish-action-url
+
+full-republish: rebuild-docs-branch publish
 	@sleep 1
 	@$(MAKE) publish-action-url
 
