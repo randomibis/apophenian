@@ -44,6 +44,8 @@ rebuild-docs-branch: refresh
 update-docs-branch: refresh
 	@#
 	@# Incremental update: commits changes to existing docs-build branch
+	@# FIXME: This doesn't work. Somehow the git add only adds the readme
+	@# and nothing else
 	@#
 	@# Avoid losing changes when moving back to main branch
 	@if [ -n "$$(git diff --name-only)" ]; then echo "Aborting due to uncommitted changes"; exit 1; fi
@@ -76,11 +78,11 @@ publish-action-url:
 	@curl -s "https://api.github.com/repos/randomibis/apophenian/actions/runs?per_page=1" | \
 	  jq -r '.workflow_runs[0] | "https://github.com/randomibis/apophenian/actions/runs/" + (.id | tostring)'
 
-republish: update-docs-branch publish
-	@sleep 1
-	@$(MAKE) publish-action-url
+#republish: update-docs-branch publish
+#	@sleep 1
+#	@$(MAKE) publish-action-url
 
-full-republish: rebuild-docs-branch publish
+republish: rebuild-docs-branch publish
 	@sleep 1
 	@$(MAKE) publish-action-url
 
