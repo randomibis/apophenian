@@ -43,8 +43,11 @@
         {{ end }}
         </div>
 
-        {{ with .Params.dimensions }}<p class="footnote">{{ . | safeHTML }}</p>{{ end }}
-        {{ with .Params.footnote }}<p class="footnote">{{ . | safeHTML }}</p>{{ end }}
+        <div class="details">
+          {{ with .Params.media }}<p>{{ . | safeHTML }}</p>{{ end }}
+          {{ with .Params.dimensions }}<p>{{ . | safeHTML }}</p>{{ end }}
+          {{ with .Params.footnote }}<p>{{ . | safeHTML }}</p>{{ end }}
+        </div>
 
       </div>
     </div>

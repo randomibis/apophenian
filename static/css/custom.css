@@ -37,12 +37,16 @@
   line-height: 2.2;
 }
 
-.content-column-content p.footnote {
+.content-column-content div.details {
   margin-top: 12rem;
   padding-left: 2rem;
   line-height: 1.5;
-  font-size: 70%;
+  font-size: 80%;
   color: #888;
+}
+
+.content-column-content div.details p {
+  margin-bottom: 12px;
 }
 
 .content-column-content h1 {
