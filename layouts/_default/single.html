@@ -6,8 +6,7 @@
       {{ $isPoetry := eq .File.Dir "poetry/" }}
 
       <div class="content-column-content {{ if $isPoetry }}poem{{ end }}">
-        <h1>{{ if .Title }}{{ .Title }}{{ else }}Untitled{{ end }}</h1>
-        {{ if not $isPoetry }}{{ with .Params.year }}<p class="year">({{ . }})</p>{{ end }}{{ end }}
+        <h1 style="margin-bottom: 1.1em;">{{ if .Title }}{{ .Title }}{{ else }}Untitled{{ end }}</h1>
 
         {{ $img1 := printf "/img/%s/%s.jpg" .File.Dir .File.BaseFileName }}
         {{ $img2 := printf "/img/%s/%s.jpg" "gallery" .File.BaseFileName }}
@@ -44,6 +43,7 @@
         </div>
 
         <div class="details">
+          {{ with .Params.year }}<p>{{ . | safeHTML }}</p>{{ end }}
           {{ with .Params.media }}<p>{{ . | safeHTML }}</p>{{ end }}
           {{ with .Params.dimensions }}<p>{{ . | safeHTML }}</p>{{ end }}
           {{ with .Params.footnote }}<p>{{ . | safeHTML }}</p>{{ end }}
