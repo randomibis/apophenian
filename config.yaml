@@ -13,9 +13,9 @@ params:
   # Use custom.css for your custom styling
   style: default
   description: Describe your website
-  copyright: "&copy;2023-2026 Magic Ogilvie"
+  copyright: "&copy;2023-2026 Magic O"
   sidebarAbout:
-  - Art by Magic Ogilvie.
+  - Art by Magic O.
 
   formspreeid: xvonyobr
   email: ogilvie.magic@gmail.com
