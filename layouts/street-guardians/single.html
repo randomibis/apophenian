@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  {{ partial "mobile_nav_toggle.html" . }}
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+        <h1 style="margin-bottom: 1.1em;">{{ if .Title }}{{ .Title }}{{ else }}Untitled{{ end }}</h1>
+
+        {{ .Content }}
+
+        <div style="display: flex; justify-content: center; margin-top: 4rem;">
+        {{ if .NextInSection }}
+          <a href="{{ .NextInSection.Permalink }}" rel="prev" class="glyphicon glyphicon-chevron-left" style="margin: auto 1em;"></a>
+        {{ else }}
+          <span class="glyphicon glyphicon-chevron-left" style="margin: auto 1em; color: #bbb;"></span>
+        {{ end }}
+
+        {{ if .PrevInSection }}
+          <a href="{{ .PrevInSection.Permalink }}" rel="next" class="glyphicon glyphicon-chevron-right" style="margin: auto 1em;"></a>
+        {{ else }}
+          <span class="glyphicon glyphicon-chevron-right" style="margin: auto 1em; color: #bbb;"></span>
+        {{ end }}
+        </div>
+
+        <div class="details">
+          {{ with .Params.year }}<p>{{ . | safeHTML }}</p>{{ end }}
+          {{ with .Params.media }}<p>{{ . | safeHTML }}</p>{{ end }}
+          {{ with .Params.dimensions }}<p>{{ . | safeHTML }}</p>{{ end }}
+          {{ with .Params.footnote }}<p>{{ . | safeHTML }}</p>{{ end }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

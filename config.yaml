@@ -41,6 +41,9 @@ params:
   - name: "Neo-guardians"
     url: "neo-guardians/"
 
+  - name: "Street Guardians"
+    url: "street-guardians/"
+
   - name: "Creatures"
     url: "creatures/"
 
