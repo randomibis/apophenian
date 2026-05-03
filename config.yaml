@@ -15,7 +15,7 @@ params:
   description: Describe your website
   copyright: "&copy;2023-2026 Magic Ogilvie"
   sidebarAbout:
-  - Art and poetry by Magic Ogilvie.
+  - Art by Magic Ogilvie.
 
   formspreeid: xvonyobr
   email: ogilvie.magic@gmail.com
@@ -47,8 +47,8 @@ params:
   #- name: "Experiments"
   #  url: "experiments/"
 
-  - name: "Poetry"
-    url: "poetry/"
+  #- name: "Poetry"
+  #  url: "poetry/"
 
   - name: "About"
     url: "about/"
