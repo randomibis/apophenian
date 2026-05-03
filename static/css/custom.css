@@ -58,6 +58,10 @@
   padding-left: 2rem;
 }
 
+img.png-bg {
+  background-color: #e0e0e0;
+}
+
 /* For image click to zoom */
 
 .lightbox {

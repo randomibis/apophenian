@@ -3,17 +3,19 @@
     <div class="grid">
         <div class="row">
           {{ range .Data.Pages }}
-              {{ $img1 := printf "/img/%s/%s.jpg" .File.Dir .File.BaseFileName }}
-              {{ $img2 := printf "/img/%s/%s.jpg" "gallery" .File.BaseFileName }}
-
-              {{ $imgPath1 := printf "static%s" $img1 }}
-              {{ $imgPath2 := printf "static%s" $img2 }}
-
+              {{ $dir := .File.Dir }}
+              {{ $base := .File.BaseFileName }}
               {{ $img := "" }}
-              {{ if fileExists $imgPath1 }}
-                {{ $img = $img1 }}
-              {{ else if fileExists $imgPath2 }}
-                {{ $img = $img2 }}
+              {{ range (slice "jpg" "png") }}
+                {{ if not $img }}
+                  {{ $try1 := printf "/img/%s/%s.%s" $dir $base . }}
+                  {{ $try2 := printf "/img/%s/%s.%s" "gallery" $base . }}
+                  {{ if fileExists (printf "static%s" $try1) }}
+                    {{ $img = $try1 }}
+                  {{ else if fileExists (printf "static%s" $try2) }}
+                    {{ $img = $try2 }}
+                  {{ end }}
+                {{ end }}
               {{ end }}
 
               {{ $isPoetry := eq .File.Dir "poetry/" }}
@@ -26,7 +28,7 @@
                         {{ else }}
                         <a href="{{ .Permalink }}" title="" class="box-masonry-image with-hover-overlay with-hover-icon">
                         {{ end }}
-                        <img src="{{ $img | absURL}}" alt="" class="img-responsive">
+                        <img src="{{ $img | absURL}}" alt="" class="img-responsive{{ if hasSuffix $img ".png" }} png-bg{{ end }}">
                         </a>
                       {{ end }}
                       {{ if eq .Params.showonlyimage true }}

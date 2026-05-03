@@ -8,22 +8,22 @@
       <div class="content-column-content {{ if $isPoetry }}poem{{ end }}">
         <h1 style="margin-bottom: 1.1em;">{{ if .Title }}{{ .Title }}{{ else }}Untitled{{ end }}</h1>
 
-        {{ $img1 := printf "/img/%s/%s.jpg" .File.Dir .File.BaseFileName }}
-        {{ $img2 := printf "/img/%s/%s.jpg" "gallery" .File.BaseFileName }}
-
-        {{ $imgPath1 := printf "static%s" $img1 }}
-        {{ $imgPath2 := printf "static%s" $img2 }}
-
         {{ $img := "" }}
-        {{ if fileExists $imgPath1 }}
-          {{ $img = $img1 }}
-        {{ else if fileExists $imgPath2 }}
-          {{ $img = $img2 }}
+        {{ range (slice "jpg" "png") }}
+          {{ if not $img }}
+            {{ $try1 := printf "/img/%s/%s.%s" $.File.Dir $.File.BaseFileName . }}
+            {{ $try2 := printf "/img/%s/%s.%s" "gallery" $.File.BaseFileName . }}
+            {{ if fileExists (printf "static%s" $try1) }}
+              {{ $img = $try1 }}
+            {{ else if fileExists (printf "static%s" $try2) }}
+              {{ $img = $try2 }}
+            {{ end }}
+          {{ end }}
         {{ end }}
 
         {{ if $img }}
            <a href="#" class="lightbox" id="img"><span style="background-image: url({{ $img }})"></span></a>
-           <a name="img" href="#img" class="main-image" style="margin: auto;"><img src="{{ $img }}" ></a>
+           <a name="img" href="#img" class="main-image" style="margin: auto;"><img src="{{ $img }}" class="{{ if hasSuffix $img ".png" }}png-bg{{ end }}"></a>
         {{ end }}
 
         {{ .Content }}
