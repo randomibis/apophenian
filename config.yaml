@@ -53,6 +53,9 @@ params:
   - name: "About"
     url: "about/"
 
+  - name: "A perspective"
+    url: "perspective/"
+
   - name: "Get in touch"
     url: "contact/"
 

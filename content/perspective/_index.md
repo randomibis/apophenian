@@ -1,0 +1,75 @@
+---
+title: A perspective
+---
+
+Has everything significant in art already been done? What is left to be said by
+myself as an artist at this point in history?
+
+When I first came to America I was really struck by its wealth and abundance.
+The Americans have everything, EVERYTHING! But it felt like it wasn’t enough,
+that they not could see what was around them, see each other. I found that
+everything was a distraction from connection, the next star, the next handbag,
+the flick of the screen, the next husband, the next BIG thing.
+
+I felt like an alien in midst of their kindness. They opened their doors to me
+and shared this abundance, but I felt as though I was another object that they
+were collecting to distract themselves.
+
+Walking through the streets I was amazed by how much of the everything was
+being discarded, held, shown and then thrown away, not handed on, not kept, not
+mended or passed along. I found it shocking. I spoke to many people about it
+and they nodded along, but then all the wanted to do at the end was show me
+their ‘hand bags’.
+
+It was at this point that I felt that there was something lacking. America,
+can’t you see that you have it all? I hear everyone say this is the greatest
+country in the world and yet you seem adrift, ever searching, not connecting.
+It reminded me of the phrase, ‘thoughts and prayers’ spoken after any tragic
+event by politicians. Prayers to whom, pleas for what?
+
+I want people to see that this is a great country, not just say it. I want
+people to experience the outcome of thoughts and prayers, manifestations of
+their personal and collective hope.
+
+Walking the streets, seeing money spent and memories disregarded bursting out
+of trash bags in front of me, I started to apologise to the land and thank it
+for continuing to offer its abundance. A very short time after this I started
+to see my unspoken small wishes manifest. I would think I’d like to paint
+something and a box of canvases would be around the corner, I’d like some
+fabric, or wire, or paint for projects, they’d appear. It was as if the small
+gods of the land, still somehow living, were urging me onwards, offering me
+opportunity, and rewarding me for recalling them.
+
+I wanted to use their kindness and abundance to remind people of them, create
+and encourage local mysticism, a place to gather and talk to neighbours about
+how amazing existence is, how lucky we all can be together. I also realised
+that we are living in a time of great change, a neo-romantic shift, both
+catastrophic and divine. These things coalesced in my [Guardians](/street-guardians/). They are large
+outdoor sculptures, formed of the detritus of the streets they inhabit. Over
+the past five years they have stood watch over the South End of Boston.
+Appearing in gardens, in front of houses and at community events. They spark
+conversation and have connected me with many people who have asked for their
+own pieces, or taken some of my smaller offerings home. I add small images to
+the streets I walk along, small gods, watching the passersby, reminding them
+to look up from the screens, if only to use the same to capture an image of
+them.
+
+For the longest time I felt creating art was only contributing to piles of
+unwanted objects that already exist in the world. I had a mindset that there
+were already many people making amazing things, and surely all of that is
+enough. I used my skills as an artist and teacher to help shape my students’
+feelings around expression, to understand you don’t have to be perfect on day
+one, shaping a space for exploration, taking a risk to share an idea, a
+concept, a conversation. This felt like great artistic practice, creating
+artists.
+
+Being able to use things that are already discarded, things that already had a
+life, to create something different, returned my practice. My works are
+ephemeral, whether they are made of boxes, dead plants, canvas and house paint,
+paper, fabric, fibres, threads, wood, whatever. We are all the same, living for
+this short time in this one place for now, existing as best we can. My small
+gods and guardians will endure, not in the forms I construct to honour them,
+but in the spaces we have all forgotten. I offer them and their homeland,
+sincerely my thoughts, my practice, and my prayers.
+
+&nbsp;&nbsp; _- Magic O, May 2026_

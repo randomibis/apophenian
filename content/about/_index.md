@@ -1,7 +1,11 @@
 ---
 title: About me
 ---
-March 2, 2025
+
+Magic is an Australian BA-BEd multidisciplinary artist, writer, and teacher,
+based in Boston Massachusetts.
+
+---
 
 As an opportunistic transmogrifier, recently re-born into another’s country,
 surrounded and incredulously impressed by the abundance of rejected artifacts,
@@ -23,3 +27,4 @@ these small gods, though they are not mine. I want them to recognise their
 power, and look upon us all with eyes sparked bright by my opportunistic
 reverence.
 
+&nbsp;&nbsp; _- Magic O, March 2025_
