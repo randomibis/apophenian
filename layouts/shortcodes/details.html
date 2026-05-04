@@ -1,0 +1,10 @@
+{{ $id := .Get 0 }}
+{{ $page := index (where .Site.RegularPages "File.ContentBaseName" $id) 0 }}
+{{ with $page }}
+<div class="details" style="max-width: 600px; margin: auto; padding-bottom: 2em; padding-left: 1em; text-align: left;">
+  {{ with .Params.title }}<p>{{ . | safeHTML }}</p>{{ end }}
+  {{ with .Params.year }}<p>{{ . | safeHTML }}</p>{{ end }}
+  {{ with .Params.media }}<p>{{ . | safeHTML }}</p>{{ end }}
+  {{ with .Params.dimensions }}<p>{{ . | safeHTML }}</p>{{ end }}
+</div>
+{{ end }}
