@@ -1,0 +1,34 @@
+{{ $gallerySections := slice "guardians" "arrival" "neo-guardians" "street-guardians" "creatures" }}
+{{ $sectionIdx := -1 }}
+{{ range $i, $s := $gallerySections }}
+  {{ if eq $s $.Section }}{{ $sectionIdx = $i }}{{ end }}
+{{ end }}
+
+<div style="display: flex; justify-content: center; margin-top: 4rem;">
+{{ if .NextInSection }}
+  <a href="{{ .NextInSection.Permalink }}" rel="prev" class="glyphicon glyphicon-chevron-left" style="margin: auto 1em;"></a>
+{{ else if and (ge $sectionIdx 1) }}
+  {{ $prevSection := site.GetPage (index $gallerySections (sub $sectionIdx 1)) }}
+  {{ with $prevSection }}
+    {{ $pages := .Pages }}
+    {{ with index $pages (sub (len $pages) 1) }}
+      <a href="{{ .Permalink }}" rel="prev" class="glyphicon glyphicon-chevron-left" style="margin: auto 1em;"></a>
+    {{ end }}
+  {{ end }}
+{{ else }}
+  <span class="glyphicon glyphicon-chevron-left" style="margin: auto 1em; color: #bbb;"></span>
+{{ end }}
+
+{{ if .PrevInSection }}
+  <a href="{{ .PrevInSection.Permalink }}" rel="next" class="glyphicon glyphicon-chevron-right" style="margin: auto 1em;"></a>
+{{ else if and (ge $sectionIdx 0) (lt $sectionIdx (sub (len $gallerySections) 1)) }}
+  {{ $nextSection := site.GetPage (index $gallerySections (add $sectionIdx 1)) }}
+  {{ with $nextSection }}
+    {{ with index .Pages 0 }}
+      <a href="{{ .Permalink }}" rel="next" class="glyphicon glyphicon-chevron-right" style="margin: auto 1em;"></a>
+    {{ end }}
+  {{ end }}
+{{ else }}
+  <span class="glyphicon glyphicon-chevron-right" style="margin: auto 1em; color: #bbb;"></span>
+{{ end }}
+</div>
