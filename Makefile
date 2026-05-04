@@ -95,4 +95,5 @@ prod-diff:
 	  git diff $$PROD_SHA
 
 preview:
+	@rm -rf resources/_gen public
 	@hugo server
