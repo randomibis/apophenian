@@ -8,22 +8,16 @@
       <div class="content-column-content {{ if $isPoetry }}poem{{ end }}">
         <h1 style="margin-bottom: 1.1em;">{{ if .Title }}{{ .Title }}{{ else }}Untitled{{ end }}</h1>
 
-        {{ $img := "" }}
+        {{ $res := false }}
         {{ range (slice "jpg" "png") }}
-          {{ if not $img }}
-            {{ $try1 := printf "/img/%s/%s.%s" $.File.Dir $.File.BaseFileName . }}
-            {{ $try2 := printf "/img/%s/%s.%s" "gallery" $.File.BaseFileName . }}
-            {{ if fileExists (printf "static%s" $try1) }}
-              {{ $img = $try1 }}
-            {{ else if fileExists (printf "static%s" $try2) }}
-              {{ $img = $try2 }}
-            {{ end }}
+          {{ if not $res }}
+            {{ $res = resources.Get (printf "img/gallery/%s.%s" $.File.BaseFileName .) }}
           {{ end }}
         {{ end }}
 
-        {{ if $img }}
-           <a href="#" class="lightbox" id="img"><span style="background-image: url({{ $img }})"></span></a>
-           <a name="img" href="#img" class="main-image" style="margin: auto;"><img src="{{ $img }}" class="{{ if hasSuffix $img ".png" }}png-bg{{ end }}"></a>
+        {{ with $res }}
+           <a href="#" class="lightbox" id="img"><span style="background-image: url({{ .RelPermalink }})"></span></a>
+           <a name="img" href="#img" class="main-image" style="margin: auto;"><img src="{{ .RelPermalink }}" class="{{ if hasSuffix .Name ".png" }}png-bg{{ end }}"></a>
         {{ end }}
 
         {{ .Content }}
