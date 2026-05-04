@@ -2,10 +2,13 @@
 title: About me
 ---
 
+
 Magic is an Australian BA-BEd multidisciplinary artist, writer, and teacher,
 based in Boston Massachusetts.
 
----
+{{< rawhtml >}}
+<p><img src="/img/magic.jpg" alt="Magic" style="max-width: 450px; margin: inherit;"></p>
+{{< /rawhtml >}}
 
 As an opportunistic transmogrifier, recently re-born into another’s country,
 surrounded and incredulously impressed by the abundance of rejected artifacts,
