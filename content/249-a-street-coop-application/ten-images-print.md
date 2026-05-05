@@ -51,5 +51,5 @@ flex: true
 
 {{< group >}}
 <p><b>10.jpg</b></p>
-{{< img "064" "width: 150px !important; margin: inherit;">}}{{< details "064" >}}
+{{< img "065" "width: 150px !important; margin: inherit;">}}{{< details "065" >}}
 {{< /group >}}

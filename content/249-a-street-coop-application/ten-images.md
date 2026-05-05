@@ -21,4 +21,4 @@ layout: list
 
 {{< img "058" "margin-top: 8em; max-width: 450px;" >}}{{< details "058" >}}
 
-{{< img "064" "margin-top: 8em; max-width: 450px;" >}}{{< details "064" >}}
+{{< img "065" "margin-top: 8em; max-width: 450px;" >}}{{< details "065" >}}
