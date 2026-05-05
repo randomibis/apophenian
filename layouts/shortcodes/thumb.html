@@ -1,0 +1,8 @@
+{{ $path := printf "img/gallery/%s.jpg" (.Get 0) }}
+{{ $res := resources.Get $path }}
+{{ with $res }}
+{{ $thumb := .Resize "200x" }}
+<p style="text-align: left;">
+<img src="{{ $thumb.RelPermalink }}" style="margin-bottom: 3em; {{ with $.Get 1 }}{{ . | safeCSS }}{{ end }}">
+</p>
+{{ end }}
