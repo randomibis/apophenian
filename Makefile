@@ -97,3 +97,13 @@ prod-diff:
 preview:
 	@rm -rf resources/_gen public
 	@hugo server
+
+qr-codes/qr.png:
+	@echo -n "HTTPS://APOPHENIAN.ART/" | qr --error-correction=L  > $@
+	@echo Created $@
+
+qr-codes/grid.png: qr.png
+	@python qr-grid.py qr.png $@
+	@echo Created $@
+
+qr-codes: qr-codes/qr.png qr-codes/grid.png
